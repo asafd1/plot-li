@@ -1,3 +1,5 @@
 __pycache__/*
 plot_backup.html
 plot_code.py
+my_data.csv
+static/plot*.html
