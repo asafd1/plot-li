@@ -1,0 +1,129 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Maven+Pro" />
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 16px;
+        background-color: #9c989b;
+        font-family: "Maven Pro";
+      }
+
+      h1 {
+        font-style: bold;
+        font-size: 72px;
+        margin-left: 10px;
+      }
+
+      span {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      img {
+        width: 100px;
+        height: 100px;
+      }
+
+      .title-div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .buttons-container {
+        display: flex;
+        width: 20%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+      #plot {
+        background-color: #1ba13f;
+      }
+
+      #reset {
+        background-color: #2e78f0;
+      }
+
+      input[type="text"] {
+        font-size: 16px;
+        width: 1000px;
+        height: 200px;
+        border: 1px solid #4285F4;
+        border-radius: 4px;
+        padding: 8px;
+        box-sizing: border-box;
+      }
+      input[type="button"] {
+        font-size: 14px;
+        height: 36px;
+        width: 100px;
+        background-color: #4285F4;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 8px;
+        cursor: pointer;
+      }
+
+      #iframe {
+        /* Set the width and height of the iframe to match the text box and button */
+        width: 1000px;
+        height: 1000px;
+      }
+
+      #spinner {
+        width: 40px;
+        height: 40px;
+        margin: 10px auto;
+        background-color: #333;
+        border-radius: 100%;
+        -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+        animation: sk-scaleout 1.0s infinite ease-in-out;
+      }
+
+      @-webkit-keyframes sk-scaleout {
+        0% { -webkit-transform: scale(0) }
+        100% {
+          -webkit-transform: scale(1.0);
+          opacity: 0;
+        }
+      }
+
+      @keyframes sk-scaleout {
+        0% {
+          -webkit-transform: scale(0);
+          transform: scale(0);
+        } 100% {
+          -webkit-transform: scale(1.0);
+          transform: scale(1.0);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body onload="hideSpinner()">
+    <div class="container">
+      <div class="title-div">
+        <img src="{{ url_for('static', filename='transparent_baby.png') }}"/>
+        <h1>Plot-Li / פְּלוֹט-לִי</h1>
+      </div>
+      <span>Enter your prompt:</span>
+      <textarea id="textbox"></textarea>
+      <div class="buttons-container">
+        <input type="button" value="Plot" id="plot" />
+        <input type="button" value="Reset" id="reset" />
+      </div>
+      <div id="spinner"></div>
+      <span>Result:</span>
+      <iframe id="iframe"></iframe>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
